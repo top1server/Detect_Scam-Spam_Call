@@ -2,8 +2,8 @@ import sys
 import os
 sys.dont_write_bytecode = True
 sys.path.append(os.path.abspath('/Detect_scam-spam_call'))
-from app.python.Record import Record
-from app.python.Convert import Convert
+from app.python.Fundamentals.Record import Record
+from app.python.Fundamentals.Convert import Convert
 import threading
 
 class Thread:
