@@ -20,15 +20,18 @@ class Convert:
             
             accumulated_audio += data
             
-            if len(accumulated_audio) > self.rate * self.width * 5:
+            if len(accumulated_audio) > self.rate * self.width * 8:
                 try:
                     audio_source = sr.AudioData(accumulated_audio, self.rate, self.width)
                     text = self.recognizer.recognize_google(audio_source, language=self.language)
-                    print("Recognized text:", text)
+                    # print("Recognized text:", text)
+                    return text
                 except sr.UnknownValueError:
-                    print("Could not understand audio")
+                    return ""
+                    # print("Could not understand audio")
                 except sr.RequestError as e:
-                    print("Could not request results; {0}".format(e))
+                    return ""
+                    # print("Could not request results; {0}".format(e))
                 
                 accumulated_audio = b''
         

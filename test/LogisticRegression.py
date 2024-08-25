@@ -1,6 +1,5 @@
 import sys
 import os
-sys.dont_write_bytecode = True
 sys.path.append(os.path.abspath('/Detect_scam-spam_call'))
 from app.python.Models.LogisticRegressionClassifier import LogisticRegressionClassifier
 
@@ -14,3 +13,5 @@ if __name__ == "__main__":
     classifier.plot_confusion_matrix(y_test, y_pred_lr, le)
     predicted_label = classifier.predict_label("À, con nhớ làm bài tập sớm nhé, rồi đi ngủ đúng giờ.")
     print(predicted_label)
+
+
